@@ -1,23 +1,29 @@
 # ubs-core
 
-#### 介绍
-The centralized management/governance/docs for sig-UB-ServiceCore.
+#### UBS Core 介绍
+UBS Core: The UnifiedBus Service Core, 灵衢系统高阶服务，提供超节点内存、IO、通信、虚拟化基础服务，支持Scale-Up编程模式，使能云大数存、AI训推性能提升
+
+
 
 #### 软件架构
-软件架构说明
+![UBServiceCore Arch](./images/ub-servicecore-arch.png)
+
+| 子项目 | 项目简介 | 项目API | 项目Owner|
+|--|--|--|--|
+| UBS Virt | 超级VM、超级容器、超级进程、跨节点设备直通与虚拟化 | [UBS-Virt](https://gitee.com/openeuler/ubs-virt) | 龚磊 [@areigonglei](https://gitee.com/areigonglei), [arei.gonglei@huawei.com](mailto:arei.gonglei@huawei.com) |
+| UBS Memory | 超大内存池能力/内存借用/内存共享 | [UBS-Memory](https://gitee.com/openeuler/ubs-mem) | 刘勇 [@deepsleepubmem](https://gitee.com/deepsleepubmem), [liuyong776@huawei.com](mailto:liuyong776@huawei.com) |
+| UBS COMM | 跨节点数据交换/跨界点数据一致性/应用透明 | [UBS-COMM](https://gitee.com/openeuler/ubs-comm) | 阮涵 [@ruan-han2001](https://gitee.com/ruan-han2001), [ruanhan@huawei.com](mailto:ruanhan@huawei.com) |
+| UBS IO | 跨设备(xPU)、跨介质(HBM、DDR、SSD)直通，超节点IO加速/分布式文件存储  | [UBS-IO](https://gitee.com/openeuler/ubs-io)| 李秀桥 [@daxiaomi](https://gitee.com/daxiaomi), [lixiuqiao1@huawei.com](mailto:lixiuqiao1@huawei.com) |
+| UBS Engine | 软件定义计算/资源按需组合与分配 | [UBS-Engine API](https://gitee.com/openeuler/ubs-engine) | 黄林波 [@hlinbo](https://gitee.com/hlinbo), [huanglinbo1@huawei.com](mailto:huanglinbo1@huawei.com) |
 
 
-#### 安装教程
+## 应用适配方式
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- **零修改**：EulerOS-Matrix提供原生Posix接口，应用无需修改即可获得**10%**收益
+- **SDK/RT适配**：应用集成UBS Core加速库/运行时，少量适配可获得**30%**性能收益
+- **深度改造**：应用针对UB总线进行深度修改和架构优化，可获得**50%**以上性能增益
 
-#### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 参与贡献
 
@@ -26,12 +32,3 @@ The centralized management/governance/docs for sig-UB-ServiceCore.
 3.  提交代码
 4.  新建 Pull Request
 
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
