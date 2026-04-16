@@ -79,6 +79,8 @@ flowchart LR
     style L2 fill:#bbdefb,color:#000
     style L3 fill:#bbdefb,color:#000
     style L4 fill:#bbdefb,color:#000
+    style L5 fill:#bbdefb,color:#000
+    style L6 fill:#bbdefb,color:#000
     style C1 fill:#ffe0b2,color:#000
     style C2 fill:#ffe0b2,color:#000
     style C3 fill:#ffe0b2,color:#000
