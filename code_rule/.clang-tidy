@@ -1,0 +1,142 @@
+---
+# clang-tidy 静态检查配置
+# 采用白名单策略：先禁用所有检查(-*)，再逐项启用，避免版本升级引入意外告警
+# 修改此文件后，建议运行 clang-tidy -list-checks 验证启用的检查列表
+
+# 仅对项目源码头文件进行诊断
+HeaderFilterRegex: '^(src|plugin|include|test)/.*\.h$'
+
+Checks: >
+  -*,
+
+  # --- bugprone: 常见编程错误检测 ---
+  bugprone-argument-comment,               # 命名参数注释与声明不匹配
+  bugprone-dangling-handle,                # 悬垂引用(如string_view引用已销毁对象)
+  bugprone-fold-init-type,                 # std::accumulate等折叠操作类型不匹配
+  bugprone-forward-declaration-namespace,   # 前向声明放在错误命名空间
+  bugprone-forwarding-reference-overload,   # 转发引用重载隐藏拷贝/移动构造
+  bugprone-shadow,                         # 变量名遮蔽外层作用域
+  bugprone-sizeof-*,                       # sizeof表达式误用
+  bugprone-string-constructor,             # std::string构造函数误用
+  bugprone-undefined-memory-manipulation,   # 对非平凡类型使用memset/memcpy
+  bugprone-unused-return-value,            # 忽略重要函数返回值
+  bugprone-use-after-move,                 # 移动后使用(错误级别)
+
+  # --- cert: 安全相关检查 ---
+  cert-err58-cpp,                          # 静态初始化期间抛出异常导致terminate
+
+  # --- clang-analyzer: Clang静态分析器 ---
+  clang-analyzer-*,
+
+  # --- 并发安全 ---
+  concurrency-mt-unsafe,                   # 多线程不安全函数调用(如strtok, gmtime)
+
+  # --- cppcoreguidelines: C++核心准则 ---
+  cppcoreguidelines-avoid-non-const-global-variables,  # 避免非const全局变量
+  cppcoreguidelines-missing-std-forward,              # 完美转发遗漏std::forward
+  cppcoreguidelines-pro-type-cstyle-cast,             # 禁止C风格转换(用static_cast等)
+  cppcoreguidelines-pro-type-reinterpret-cast,        # 禁止reinterpret_cast
+  cppcoreguidelines-pro-type-member-init,             # 成员变量必须在构造函数中初始化
+  cppcoreguidelines-special-member-functions,         # Rule of Five一致性
+  cppcoreguidelines-virtual-class-destructor,         # 虚基类必须有虚析构函数
+
+  # --- google: Google代码规范 ---
+  google-build-using-namespace,            # 禁止头文件中using namespace
+  google-explicit-constructor,             # 单参数构造函数必须标记explicit
+
+  # --- misc: 杂项 ---
+  misc-definitions-in-headers,             # 头文件中不应定义实体
+  misc-redundant-expression,               # 冗余表达式(如if(x==x))
+  misc-use-anonymous-namespace,            # 文件作用域函数/变量应放入匿名命名空间
+
+  # --- modernize: 现代C++特性 ---
+  modernize-*,
+  -modernize-use-auto,                     # 不强制使用auto
+  -modernize-use-trailing-return-type,     # 不强制使用尾置返回类型
+
+  # --- performance: 性能优化 ---
+  performance-faster-string-find,          # string::find使用字符而非字符串
+  performance-for-range-copy,              # range-for中避免不必要的拷贝
+  performance-implicit-conversion-in-loop,  # 循环中避免隐式转换
+  performance-inefficient-algorithm,       # 使用更高效的算法
+  performance-inefficient-string-concatenation,  # 循环中字符串拼接优化
+  performance-inefficient-vector-operation,      # vector操作效率优化(如push_back前reserve)
+  performance-move-const-arg,              # 不要移动const参数
+  performance-move-constructor-init,       # 移动构造函数中应移动初始化基类/成员
+  performance-no-automatic-move,           # 阻止自动移动的场景
+  performance-no-int-to-ptr,               # 避免整数转指针(不安全)
+  performance-trivially-destructible,      # 不必要的析构函数
+  performance-unnecessary-copy-initialization,  # 不必要的拷贝初始化
+  performance-unnecessary-value-param,     # 函数参数按值传递应改为const引用
+
+  # --- readability: 可读性 ---
+  readability-braces-around-statements,    # 语句必须加花括号
+  readability-duplicate-include,           # 重复include检测
+  readability-function-size,               # 函数体不超过50条语句
+  readability-identifier-naming,           # 命名规范(详见CheckOptions)
+  readability-redundant-string-init        # 冗余字符串初始化(如string s = "")
+
+# 错误级别警告：use-after-move必须修复
+WarningsAsErrors: >
+  bugprone-use-after-move
+
+CheckOptions:
+  # --- bugprone 选项 ---
+  - key: bugprone-easily-swappable-parameters.MinimumLength
+    value: 4
+
+  # --- cppcoreguidelines 选项 ---
+  - key: cppcoreguidelines-avoid-non-const-global-variables.AllowThreadLocal
+    value: true
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: true
+  - key: cppcoreguidelines-special-member-functions.AllowImplicitlyDeletedCopyOrMove
+    value: true
+
+  # --- modernize 选项 ---
+  - key: modernize-use-using.IgnoreExternC
+    value: true
+
+  # --- performance 选项 ---
+  - key: performance-move-const-arg.CheckTriviallyCopyableMove
+    value: false
+  - key: performance-unnecessary-value-param.AllowedTypes
+    value: '[Pp]ointer$;[Pp]tr$;[Rr]ef(erence)?$'
+  - key: performance-unnecessary-copy-initialization.AllowedTypes
+    value: '[Pp]ointer$;[Pp]tr$;[Rr]ef(erence)?$'
+
+  # --- 命名规范 ---
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: camelBack
+  - key: readability-identifier-naming.GlobalVariablePrefix
+    value: g_
+  - key: readability-identifier-naming.MemberCase
+    value: camelBack
+  - key: readability-identifier-naming.ClassMemberCase
+    value: camelBack
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: CamelCase
+  - key: readability-identifier-naming.ClassMethodCase
+    value: CamelCase
+  - key: readability-identifier-naming.MethodCase
+    value: CamelCase
+  - key: readability-identifier-naming.ConstantCase
+    value: camelBack
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumConstantCase
+    value: UPPER_CASE
+  - key: readability-identifier-naming.MacroDefinitionCase
+    value: UPPER_CASE
+
+  # --- 函数大小限制 ---
+  - key: readability-function-size.StatementThreshold
+    value: '50'
