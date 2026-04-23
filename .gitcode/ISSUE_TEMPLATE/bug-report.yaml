@@ -1,0 +1,72 @@
+name: 🐛 Bug report
+description: 反馈程序 Bug 
+title: "[Bug]: "
+labels: ["bug"]
+
+body:
+- type: markdown
+  attributes:
+    label: "⚠️ **安全信息提醒**"
+    description: ""
+    value: |
+      请尽量提供详细的信息,支持缺陷定位，同时请注意信息安全性，确保其不含敏感数据信息，包括但不限于：
+      - API 令牌或密钥
+      - 密码或身份验证凭证
+      - 私有网址或接口地址
+      - 个人或机密数据
+      - ...
+
+      在分享配置信息或代码示例时，请将敏感信息脱敏处理，或使用 `<TOKEN>` 等占位符替代原有内容。
+    
+- type: textarea
+  attributes:
+    label: "**缺陷描述**"
+    description: "详细的缺陷问题现象描述"
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "环境信息"
+    description: ""
+    value: |
+      【OS版本】(如openEuler-22.03-LTS, 参考命令"cat /etc/os-release"结果）
+
+      【本软件版本】(如ubs-engine-1.0.0,参考命令"rpm -qi ubs-engine"结果）
+
+      【依赖软件版本】(如ubm-1.0.0,参考命令"rpm -qi ubm"结果）
+
+      【组网信息】（和网络、性能相关的问题，应该说明详细的组网和场景信息）
+
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "缺陷信息"
+    description: ""
+    value: |
+      【问题复现步骤】
+      1. 
+      2. 
+      3. 
+
+      【实际结果】请描述出问题的结果和影响
+
+      【期望结果】请描述出期望的结果和影响
+
+      【其他相关附件信息】比如 syslog、dmesg、panic、lockup、kdump 信息、图片等
+
+      ```
+      # 这里可以附上相关文本信息
+      ```
+
+      【已分析信息】如已经做过分析和定位，请尽量附上详细的分析结果
+
+  validations:
+    required: true
+
+- type: markdown
+  attributes:
+    value: >
+      欢迎加入社区，感谢您对社区的贡献 🎉!

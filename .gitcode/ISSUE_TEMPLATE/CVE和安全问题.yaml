@@ -1,0 +1,51 @@
+name: "CVE和安全问题"
+description: "反馈CVE和安全问题"
+title: ""
+labels: [ "task_cve_and_security" ]
+type: "CVE和安全问题"
+body:
+  - type: markdown
+    attributes:
+      label: ""
+      description: "请根据issue相关的版本在里程碑中选择对应的节点, 若是与版本无关或不确认, 请选择“不关联里程碑”"
+
+  - type: textarea
+    attributes:
+      label: "一、漏洞信息"
+      description: ""
+      value: |
+        漏洞编号： 
+
+        漏洞归属组件： 
+
+        漏洞归属的版本：
+
+        CVSS V3.0分值：
+
+        漏洞简述：
+
+        漏洞公开时间：
+
+        漏洞创建时间：
+
+        漏洞详情参考链接：
+
+        漏洞分析指导链接：
+        https://gitee.com/openeuler/cve-manager/blob/master/doc/md/manual.md
+
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "二、漏洞分析结构反馈"
+      description: ""
+      value: |
+        影响性分析说明：
+
+        openEuler评分:
+
+        受影响版本排查(受影响/不受影响):
+
+    validations:
+      required: true
