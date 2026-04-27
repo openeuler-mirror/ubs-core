@@ -1,0 +1,44 @@
+name: 🔧 Enhancement
+description: 代码审查、文档审查、流程优化、目录结构调整等增强改进建议
+title: "[Enhancement]: "
+labels: ["enhancement"]
+
+body:
+- type: textarea
+  attributes:
+    label: "问题信息"
+    description: "描述当前现状及具体问题"
+    value: |
+      【问题描述】
+      可在此附上相关截图或文档
+
+      【问题相关代码/文档位置】
+      如涉及具体文件或目录，请提供路径
+
+      【参考链接】
+      如有相关的参考资料或类似实现，请提供链接
+
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "增强改进建议"
+    description: "描述目标方案、目标架构或实现思路，可包含代码结构示意、流程图等。"
+    value: |
+      【改进方案描述】
+      可在此附上相关截图或文档
+
+      【改进建议相关代码/文档位置】
+      如涉及具体文件或目录，请提供路径
+
+      【参考链接】
+      如有相关的参考资料或类似实现，请提供链接
+
+  validations:
+    required: false
+
+- type: markdown
+  attributes:
+    value: >
+      欢迎加入社区，感谢您对社区的贡献 🎉!

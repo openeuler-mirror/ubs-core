@@ -124,6 +124,7 @@ flowchart LR
 2. CI只对源码仓的特定分支进行质量守护：经过sig评审，并在ubs-core/branch/下记录的分支才受CI守护；各子项目的committer按需拉取的分支没有CI守护能力
 3. 由CI守护的分支，合入源码仓的条件：所有PR必须关联issue，所有门禁通过，两个committer vote
 4. 无CI守护的分支，代码合入条件：所有PR必须关联issue，两个committer vote
+5. 在源码仓CI验证通过后，由CI提供合入到制品仓的能力，但是需要人工触发
 
 ## 2.5 分支规则
 
