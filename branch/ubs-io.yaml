@@ -1,0 +1,12 @@
+name: ubs-io
+description: xxxx
+upstream: https://atomgit.com/openeuler/ubs-io
+branches:
+  - name: master
+    type: protected
+    #create_from: master
+
+  - name: openEuler-24.03-LTS-SP4
+    type: protected
+    create_from: master
+type: public
