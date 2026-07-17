@@ -1,0 +1,13 @@
+- repo: ubs-engine
+  branches:
+    - name: main
+      desc: 主分支
+    - name: dev
+      desc: 开发分支
+
+- repo: ubs-io
+  branches:
+    - name: main
+      desc: 主分支
+    - name: dev
+      desc: 开发分支
