@@ -1,13 +1,13 @@
 - repo: ubs-engine
-  branches:
-    - name: main
-      desc: 主分支
-    - name: dev
-      desc: 开发分支
+  tags:
+    - name: v0.1.6
+      create_from: commit/a661b096897888ff226f3be9d75319ce16d83c59
 
-- repo: ubs-io
+# 合入时请参考以下模板
+- repo: ubs-xxx
   branches:
-    - name: main
-      desc: 主分支
-    - name: dev
-      desc: 开发分支
+    - name: xxx
+      create_from: tag/xxx; branch/xxx
+  tags:
+    - name: xxx
+      create_from: commit/xxx; branch/xxx
