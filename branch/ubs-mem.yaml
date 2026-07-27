@@ -1,0 +1,11 @@
+name: ubs-mem
+description: Ubs-mem supports unified memory programming to implement shared memory and pooled memory of UB superpods.
+upstream: https://atomgit.com/openeuler/ubs-mem
+branches:
+  - name: master
+    type: protected
+
+  - name: openEuler-24.03-LTS-SP4
+    type: protected
+    create_from: tag/v1.0.1-1
+type: public
