@@ -1,5 +1,5 @@
 name: ubs-io
-description: xxxx
+description: Ubs-io provides high-level I/O services for application-affinity global data read/write caching systems based on UB superpods
 upstream: https://atomgit.com/openeuler/ubs-io
 branches:
   - name: master
@@ -7,6 +7,17 @@ branches:
     #create_from: master
 
   - name: openEuler-24.03-LTS-SP4
+    description: ubs-io release branch
     type: protected
     create_from: master
+
+  - name: develop_memStore
+    description: memStore for HuaTai release branch
+    type: protected
+    #create_from: master
+
+  - name: br_UnifiedBus
+    description: LingQu release branch
+    type: protected
+    #create_from: master
 type: public
