@@ -1,14 +1,22 @@
 - repo: ubs-engine
-  branches:
-    - name: master
-      # create_from: master
-    - name: br_UnifiedBus
-      # create_from: br_UnifiedBus
   tags:
     - name: v0.1.6
       create_from: commit/e4cebd4393787795e5a87af1a3cfcc8a8ea9c999
     - name: v0.1.7
       create_from: commit/2808f95484f63c99d8454720b0503476eda385ef
+
+- repo: ubs-io
+  branches:
+    - name: develop
+      #create_from: master
+    - name: branch_develop_mf
+      #create_from: master
+    - name: develop_TD
+      #create_from: master
+    - name: develop_gh
+      #create_from: master
+    - name: develop_memStore_v1.0
+      #create_from: master
 
 # 合入时请参考以下模板
 - repo: ubs-xxx
