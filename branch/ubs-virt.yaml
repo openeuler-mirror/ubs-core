@@ -1,0 +1,15 @@
+name: ubs-virt
+description: Ubs-virt comprises multiple virtualization components that deliver NPU compute soft partitioning, VM scalability tuning, and performance optimization for NPU-passthrough VMs running large language model inference workloads.
+upstream: https://gitcode.com/openeuler/ubs-virt
+branches:
+  - name: master
+    type: protected
+    #create_from: master
+  - name: openEuler-24.03-LTS-SP3
+    type: protected
+    create_from: master
+  - name: openEuler-24.03-LTS-SP4
+    type: protected
+    create_from: master
+
+type: public
