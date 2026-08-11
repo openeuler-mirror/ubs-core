@@ -18,6 +18,14 @@
     - name: develop_memStore_v1.0
       #create_from: master
 
+name: ubturbo
+branches:
+  - name: feature/advanced-master
+    create_from: branch/master
+
+  - name: feature/agent-swap-devel
+    create_from: commit/8edda40c72487b6c2157388a2222e069f5cbc99a
+
 # 合入时请参考以下模板
 - repo: ubs-xxx
   branches:

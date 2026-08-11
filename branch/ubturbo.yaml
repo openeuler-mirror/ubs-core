@@ -1,0 +1,15 @@
+name: ubturbo
+description: UBTurbo provides a high-performance framework for unified buffer management and data acceleration in UB superpod environments.
+upstream: https://gitcode.com/openeuler/ubturbo
+branches:
+  - name: master
+    type: protected
+
+  - name: openEuler-24.03-LTS-SP3
+    type: protected
+    create_from: master
+
+  - name: openEuler-24.03-LTS-SP4
+    type: protected
+    create_from: master
+type: public
