@@ -5,6 +5,11 @@
     - name: v0.1.7
       create_from: commit/2808f95484f63c99d8454720b0503476eda385ef
 
+- repo: ubs-virt
+  tags:
+    - name: 26.3.1106
+      create_from: commit/08d1501f4600acf572312ba34993fe8ce084a925
+
 - repo: ubs-io
   branches:
     - name: develop
