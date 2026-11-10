@@ -5,6 +5,11 @@
     - name: v0.1.7
       create_from: commit/2808f95484f63c99d8454720b0503476eda385ef
 
+- repo: ubs-mem
+  tags:
+    - name: 1.1.1
+      create_from: commit/581521a0f0dbb0ecaf0f959bd5c1a859bfe558d7
+
 - repo: ubs-virt
   tags:
     - name: 26.3.1106
@@ -23,13 +28,13 @@
     - name: develop_memStore_v1.0
       #create_from: master
 
-name: ubturbo
-branches:
-  - name: feature/advanced-master
-    create_from: branch/master
+- repo: ubturbo
+  branches:
+    - name: feature/advanced-master
+      create_from: branch/master
 
-  - name: feature/agent-swap-devel
-    create_from: commit/8edda40c72487b6c2157388a2222e069f5cbc99a
+    - name: feature/agent-swap-devel
+      create_from: commit/8edda40c72487b6c2157388a2222e069f5cbc99a
 
 # 合入时请参考以下模板
 - repo: ubs-xxx
