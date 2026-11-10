@@ -1,5 +1,7 @@
 - repo: ubs-engine
   tags:
+    - name: 1.0.10
+      create_from: commit/af7c4e2a23f61b114de4578072d739e833f48556
     - name: v0.1.6
       create_from: commit/e4cebd4393787795e5a87af1a3cfcc8a8ea9c999
     - name: v0.1.7
